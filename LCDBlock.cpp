@@ -197,16 +197,3 @@ size_t LCDBlock::displayf(char *fmt, ... ) {
     display();
     return size;
 }
-
-size_t LCDBlock::printf(char *fmt, ... ) {
-    va_list args;
-    va_start (args, fmt);
-#ifdef __AVR__
-    vsnprintf_P(displayfBuffer, sizeof(displayfBuffer), (const char *)fmt, args); // progmem for AVR
-#else
-    vsnprintf(displayfBuffer, sizeof(displayfBuffer), (const char *)fmt, args); // for the rest of the world
-#endif
-    va_end(args);
-    size_t size = print(displayfBuffer);
-    return size;
-}

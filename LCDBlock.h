@@ -45,7 +45,6 @@ class LCDBlock : public Print {
 		size_t display(const Printable &p);
 		size_t display(const String &s);
 		size_t displayf(char *fmt, ... );
-		size_t printf(char *fmt, ... );
 
 	protected:
 		void lcdSetCursor(int col, int row);
